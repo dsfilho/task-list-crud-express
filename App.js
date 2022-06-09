@@ -27,12 +27,8 @@ app.put("/projects/:id",(request,response) =>{
 
     const {id} = request.params;
     const {title} = request.body;
-    const indexTask = catalogoTask.findIndex(task => task.id === id);
+    const indexTask = findTask(id,response);
 
-    if(indexTask == -1){
-
-        return response.status(404).json({error:'Task not found!'});
-    }
 
     const task ={
         id,
@@ -45,5 +41,25 @@ app.put("/projects/:id",(request,response) =>{
     return response.json(task);
 
 })
+
+app.delete("/projects/:id",(request,response) => {
+
+
+
+
+
+})
+
+const findTask = (id,response) =>{
+
+    const indexTask = catalogoTask.findIndex(task => task.id === id);
+
+    if(indexTask == -1){
+
+        return response.status(404).json({error:'Task not found!'});
+    }else{
+        return indexTask;
+    }
+}
 
 app.listen(8080)
