@@ -31,7 +31,7 @@ app.put("/projects/:id",(request,response) =>{
 
     if(indexTask == -1){
 
-        return response.status(400).json({error:'Task not found!'});
+        return response.status(404).json({error:'Task not found!'});
     }
 
     const task ={
