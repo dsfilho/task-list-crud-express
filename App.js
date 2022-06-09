@@ -17,6 +17,27 @@ return response.json(project);
 
 })
 
+app.post("/projects/:id/:task" , (request,response) =>{
+    
+    const  {title} = request.body;
+    const {id,task} = request.params; 
+        
+    const indexTask = findTaskIndex(id,response);
+    
+    const addTask ={
+        id,
+        title,
+        tasks:[task]
+    }
+
+    catalogoTask[indexTask] = addTask;
+            
+    return response.json(addTask);
+    
+    })
+
+
+
 app.get("/projects",(request,response) =>{
 
     return response.json(catalogoTask);
