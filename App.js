@@ -27,7 +27,7 @@ app.post("/projects/:id/:task" , (request,response) =>{
     const addTask ={
         id,
         title,
-        tasks:[task]
+        tasks:[task],
     }
 
     catalogoTask[indexTask] = addTask;
