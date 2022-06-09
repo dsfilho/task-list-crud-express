@@ -27,8 +27,7 @@ app.put("/projects/:id",(request,response) =>{
 
     const {id} = request.params;
     const {title} = request.body;
-    const indexTask = findTask(id,response);
-
+    const indexTask = findTaskIndex(id,response);
 
     const task ={
         id,
@@ -44,13 +43,15 @@ app.put("/projects/:id",(request,response) =>{
 
 app.delete("/projects/:id",(request,response) => {
 
+ const {id} = request.params;
 
+ taskIndex = find
 
 
 
 })
 
-const findTask = (id,response) =>{
+const findTaskIndex = (id,response) =>{
 
     const indexTask = catalogoTask.findIndex(task => task.id === id);
 
