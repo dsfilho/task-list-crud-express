@@ -45,10 +45,11 @@ app.delete("/projects/:id",(request,response) => {
 
  const {id} = request.params;
 
- taskIndex = find
+ taskIndex = findTaskIndex(id,response);
 
+ catalogoTask.splice(taskIndex,1);
 
-
+ return response.status(200).send("Task deleted!");
 })
 
 const findTaskIndex = (id,response) =>{
@@ -57,7 +58,7 @@ const findTaskIndex = (id,response) =>{
 
     if(indexTask == -1){
 
-        return response.status(404).json({error:'Task not found!'});
+        return response.status(404).send('Task not found!');
     }else{
         return indexTask;
     }
